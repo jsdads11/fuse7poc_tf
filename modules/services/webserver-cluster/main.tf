@@ -62,9 +62,10 @@ ingress {
 
 
 resource "aws_elb" "example" {
-  #name               = "terraform-asg-${var.cluster_name}"
   name               = var.cluster_name
-  availability_zones = data.aws_availability_zones.all.names  
+  security_groups    = [aws_security_group.elb.id] 
+  subnets            = ["subnet-f9bf2ca3"]
+  #availability_zones = data.aws_availability_zones.all.names  
 
   health_check {
     target              = "HTTP:${var.server_port}/"
@@ -87,6 +88,7 @@ resource "aws_elb" "example" {
 resource "aws_security_group" "elb" {
   #name = "terraform-example-elb"  # Allow all outbound
   name = "${var.cluster_name}-elb"  # Allow all outbound
+
   egress {
     from_port   = 0
     to_port     = 0
