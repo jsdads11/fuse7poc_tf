@@ -1,3 +1,11 @@
+
+variable "my_key_name" {
+  description = "The key file to connect"
+  type        = string
+  default    = "ej-digital-sandbox-keypair-poc"
+
+}
+
 variable "server_port" {
   description = "The port the server will use for HTTP requests"
   type        = number
@@ -29,4 +37,5 @@ variable "max_size" {
   description = "The maximum number of EC2 Instances in the ASG"
   type        = number
 }
+
 
