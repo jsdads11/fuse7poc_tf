@@ -14,18 +14,6 @@ variable "my_key_name" {
 
 }
 
-variable "server_port" {
-  description = "The port the server will use for HTTP requests"
-  type        = number
-  default     = 8080
-}
-
-variable "elb_port" {
-  description = "The port the ELB will use for HTTP requests"
-  type        = number
-  default     = 80
-}
-
 variable "instance_type" {
   description = "The type of EC2 Instances to run (e.g. t2.micro)"
   type        = string
@@ -42,4 +30,19 @@ variable "max_size" {
   type        = number
 }
 
+# ---------------------------------------------------------------------------------------------------------------------
+# OPTIONAL PARAMETERS
+# ---------------------------------------------------------------------------------------------------------------------
+
+variable "server_port" {
+  description = "The port the server will use for HTTP requests"
+  type        = number
+  default     = 8080
+}
+
+variable "elb_port" {
+  description = "The port the ELB will use for HTTP requests"
+  type        = number
+  default     = 80
+}
 
