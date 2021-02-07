@@ -1,3 +1,7 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE THE SECURITY GROUP THAT'S APPLIED TO EACH EC2 INSTANCE IN THE ASG
+# ---------------------------------------------------------------------------------------------------------------------
+
 resource "aws_security_group" "instance" {
   name = "${var.cluster_name}-instance"
 
@@ -16,6 +20,11 @@ ingress {
     cidr_blocks = ["217.44.197.50/32"]
   }
 }
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE A SECURITY GROUP THAT CONTROLS WHAT TRAFFIC CAN GO IN AND OUT OF THE ELB
+# ---------------------------------------------------------------------------------------------------------------------
 
 resource "aws_security_group" "elb" {
   #name = "terraform-example-elb"  # Allow all outbound

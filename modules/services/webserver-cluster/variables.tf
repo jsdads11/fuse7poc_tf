@@ -1,3 +1,11 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# REQUIRED PARAMETERS
+# ---------------------------------------------------------------------------------------------------------------------
+
+variable "cluster_name" {
+   description = "The name to use for all the cluster resources"
+   type        = string
+}
 
 variable "my_key_name" {
   description = "The key file to connect"
@@ -18,14 +26,10 @@ variable "elb_port" {
   default     = 80
 }
 
-variable "cluster_name" {
-   description = "The name to use for all the cluster resources"
-   type        = string
-}
-
 variable "instance_type" {
   description = "The type of EC2 Instances to run (e.g. t2.micro)"
   type        = string
+  default     = t2.micro
 }
 
 variable "min_size" {

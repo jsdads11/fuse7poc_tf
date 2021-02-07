@@ -1,3 +1,7 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE THE AUTO SCALING GROUP
+# ---------------------------------------------------------------------------------------------------------------------
+
 resource "aws_autoscaling_group" "example" {
   launch_configuration = aws_launch_configuration.example.id
   availability_zones   = data.aws_availability_zones.all.names

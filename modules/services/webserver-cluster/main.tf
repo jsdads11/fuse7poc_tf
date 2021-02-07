@@ -33,6 +33,9 @@
 
 data "aws_availability_zones" "all" {}
 
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE A LAUNCH CONFIGURATION THAT DEFINES EACH EC2 INSTANCE IN THE ASG (AUTO SCALING GROUP
+# ---------------------------------------------------------------------------------------------------------------------
 
 resource "aws_launch_configuration" "example" {
   image_id        = "ami-0aef57767f5404a3c"      # Ubunto/busybox
