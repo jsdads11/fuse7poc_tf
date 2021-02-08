@@ -4,7 +4,6 @@
 # (ELB) in front of it to distribute traffic across the EC2 Instances in the ASG.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# modularised version 
 #.
 #├── dev
 #│   └── webserver-cluster
@@ -52,7 +51,4 @@ resource "aws_launch_configuration" "example" {
     create_before_destroy = true
  }
 }
-
-
-
 

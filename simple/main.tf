@@ -33,6 +33,7 @@ resource "aws_launch_configuration" "example" {
   #image_id        = "ami-0c55b159cbfafe1f0"
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.instance.id]
+
   user_data = <<-EOF
      #!/bin/bash
      echo "Hello, World" > index.html
@@ -103,7 +104,8 @@ resource "aws_security_group" "elb" {
 
 resource "aws_elb" "example" {
   name               = "terraform-asg-example"
-  availability_zones = data.aws_availability_zones.all.names  
+  #availability_zones = data.aws_availability_zones.all.names  
+  subnets         = ["subnet-f9bf2ca3"]
 
   health_check {
     target              = "HTTP:${var.server_port}/"
